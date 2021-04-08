@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2015",
+        "baseUrl": "./",
+        "paths": {
+            "@oreo/src/*": ["src/*"],
+            "@oreo/lib/*": ["lib/*"],
+            "@oreo/config/*": ["config/*"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
