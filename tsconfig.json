@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "CommonJS",
+		"strict": false,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": false,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"outDir": "dist/",
+		"baseUrl": "./",
+		"paths": {
+			"@oreo/lib/*": ["lib/*"],
+			"@oreo/src/*": ["src/*"],
+			"@oreo/config/*": ["config/*"]
+		}
+	}
+}
