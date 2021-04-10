@@ -6,6 +6,14 @@
 	"repository": "https://github.com/oweo/oreo",
 	"author": "catcosmicice <catcosmicice@protonmail.ch>",
 	"license": "CC BY-NC-ND 4.0",
+	"prettier": {
+		"tabWidth": 4,
+		"singleQuote": false,
+		"semi": true,
+		"trailingComma": "none",
+		"arrowParens": "always",
+		"printWidth": 80
+	},
 	"scripts": {
 		"dev": "yarn compile && yarn rd",
 		"compile": "rm -rf dist/ && yarn tsc",
@@ -29,6 +37,7 @@
 		"typescript": "^4.2.4"
 	},
 	"dependencies": {
+		"@aero/centra": "^1.0.6",
 		"discord-akairo": "^8.1.0",
 		"discord.js": "^12.5.3",
 		"dotenv": "^8.2.0",

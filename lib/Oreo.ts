@@ -1,51 +1,31 @@
-import {
-  AkairoClient,
-  CommandHandler,
-  ListenerHandler,
-  InhibitorHandler,
-} from "discord-akairo";
+import { AkairoClient, CommandHandler, ListenerHandler } from "discord-akairo";
 import { config } from "@oreo/config/index";
+import { join } from "path";
 
 export class Oreo extends AkairoClient {
-  handler: CommandHandler;
-  listener: ListenerHandler;
-  inhibitor: InhibitorHandler;
+    handler: CommandHandler;
+    listener: ListenerHandler;
 
-  constructor() {
-    super({ ...config.akairo, ...config.discord });
+    constructor() {
+        super({ ...config.akairo, ...config.discord });
 
-    this.handler = new CommandHandler(this, {
-      directory: __dirname.includes("/dist/")
-        ? "./dist/src/commands/"
-        : "./src/commands",
-      commandUtil: true,
-      handleEdits: true,
-      automateCategories: true,
-      prefix: config.oreo.defaultPrefix,
-    });
+        this.handler = new CommandHandler(this, {
+            directory: join(__dirname, "../src/commands"),
+            commandUtil: true,
+            handleEdits: true,
+            automateCategories: true,
+            prefix: "o."
+        });
 
-    this.listener = new ListenerHandler(this, {
-      directory: __dirname.includes("/dist/")
-        ? "./dist/src/listeners/"
-        : "./src/listeners",
-    });
+        this.listener = new ListenerHandler(this, {
+            directory: join(__dirname, "../src/listeners")
+        });
 
-    this.inhibitor = new InhibitorHandler(this, {
-      directory: __dirname.includes("/dist/")
-        ? "./dist/src/inhibitors/"
-        : "./src/inhibitors",
-    });
-
-    this.handler
-      .loadAll()
-      .useInhibitorHandler(this.inhibitor)
-      .useListenerHandler(this.listener);
-    this.inhibitor.loadAll();
-    this.listener.setEmitters({
-      handler: this.handler,
-      listener: this.listener,
-      inhibitor: this.inhibitor,
-    });
-    this.listener.loadAll();
-  }
+        this.handler.loadAll().useListenerHandler(this.listener);
+        this.listener.setEmitters({
+            handler: this.handler,
+            listener: this.listener
+        });
+        this.listener.loadAll();
+    }
 }

@@ -1,22 +1,22 @@
 name: Prettify
 on: [push]
 jobs:
-  prettify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2.3.4
+    prettify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2.3.4
 
-      - name: Install dependencies
-        run: yarn && yarn install
+            - name: Install dependencies
+              run: yarn && yarn install
 
-      - name: Prettify
-        run: yarn prettify
+            - name: Prettify
+              run: yarn prettify
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4.9.2
-        with:
-          commit_message: Prettify code
-          branch: ${{ github.head_ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4.9.2
+              with:
+                  commit_message: Prettify code
+                  branch: ${{ github.head_ref }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

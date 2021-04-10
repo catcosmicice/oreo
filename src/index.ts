@@ -3,7 +3,7 @@ import { Oreo } from "@oreo/lib/Oreo";
 import * as dotenv from "dotenv";
 
 dotenv.config({
-  path: ".env",
+    path: ".env"
 });
 
 const client = new Oreo();

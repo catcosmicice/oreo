@@ -5,6 +5,13 @@ __metadata:
   version: 4
   cacheKey: 7
 
+"@aero/centra@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@aero/centra@npm:1.0.6"
+  checksum: dcd9ac648b45b2c725cb1670a46d8b60d3bc55d93e2e9ffedccb16eaf508a229bf71df8d5eae84e81d8b4660372628bde28370421d8f43f618afe9154973d8ca
+  languageName: node
+  linkType: hard
+
 "@arcanis/slice-ansi@npm:^1.0.2":
   version: 1.0.2
   resolution: "@arcanis/slice-ansi@npm:1.0.2"
@@ -1062,6 +1069,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "oreo@workspace:."
   dependencies:
+    "@aero/centra": ^1.0.6
     "@types/module-alias": ^2
     "@types/node": ^14.14.37
     "@types/prettier": ^2

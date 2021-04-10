@@ -84,7 +84,7 @@ const moduleWrapper = (tsserver) => {
 	const Session = tsserver.server.Session;
 	const {
 		onMessage: originalOnMessage,
-		send: originalSend,
+		send: originalSend
 	} = Session.prototype;
 	let isVSCode = false;
 
@@ -122,7 +122,7 @@ const moduleWrapper = (tsserver) => {
 					})
 				)
 			);
-		},
+		}
 	});
 };
 
