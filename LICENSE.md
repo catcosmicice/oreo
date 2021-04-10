@@ -1,4 +1,4 @@
-oreo Discord Bot (c) by oreo
+oreo Discord Bot (c) by cosmicice
 
 oreo Discord Bot is licensed under a
 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
