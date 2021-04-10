@@ -2291,12 +2291,10 @@ module.exports = {
                                 responsesCache: s.createNullCache(),
                                 requestsCache: s.createNullCache(),
                                 hostsCache: a.createInMemoryCache(),
-                                userAgent: u
-                                    .createUserAgent(n.version)
-                                    .add({
-                                        segment: "Node.js",
-                                        version: process.versions.node
-                                    })
+                                userAgent: u.createUserAgent(n.version).add({
+                                    segment: "Node.js",
+                                    version: process.versions.node
+                                })
                             };
                             return c.createSearchClient({
                                 ...p,
