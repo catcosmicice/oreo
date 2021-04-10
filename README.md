@@ -23,6 +23,8 @@ Support Server: Soon&trade;
 
 This project is licensed under the [CC BY-NC-ND 4.0](LICENSE.md) License.
 
+For a Human-Readable Summary, visit https://creativecommons.org/licenses/by-nc-nd/4.0/.
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Foweo%2Foreo.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Foweo%2Foreo?ref=badge_large)
 
 &copy; [cosmicice](https://github.com/catcosmicice) 2017-2021.
