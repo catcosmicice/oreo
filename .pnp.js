@@ -39,11 +39,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/module-alias", "npm:2.0.0"],
             ["@types/node", "npm:14.14.37"],
+            ["@types/prettier", "npm:2.2.3"],
             ["@yarnpkg/pnpify", "virtual:30e6e4d2954e1436e967e1e1941af68a3819777bb17da1378d300b963da9ee50c77f848f8d4be802c3ca21fb2bb740482422136a69d6db8619017a493e08285c#npm:2.4.0"],
             ["discord-akairo", "npm:8.1.0"],
             ["discord.js", "npm:12.5.3"],
             ["dotenv", "npm:8.2.0"],
             ["module-alias", "npm:2.2.2"],
+            ["prettier", "npm:2.2.1"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
           ],
           "linkType": "SOFT",
@@ -192,6 +194,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-14.14.37-6783f920bd-5e2d9baf75.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:14.14.37"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/prettier", [
+        ["npm:2.2.3", {
+          "packageLocation": "./.yarn/cache/@types-prettier-npm-2.2.3-6036e6d94a-b7e80288f9.zip/node_modules/@types/prettier/",
+          "packageDependencies": [
+            ["@types/prettier", "npm:2.2.3"]
           ],
           "linkType": "HARD",
         }]
@@ -1262,11 +1273,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["oreo", "workspace:."],
             ["@types/module-alias", "npm:2.0.0"],
             ["@types/node", "npm:14.14.37"],
+            ["@types/prettier", "npm:2.2.3"],
             ["@yarnpkg/pnpify", "virtual:30e6e4d2954e1436e967e1e1941af68a3819777bb17da1378d300b963da9ee50c77f848f8d4be802c3ca21fb2bb740482422136a69d6db8619017a493e08285c#npm:2.4.0"],
             ["discord-akairo", "npm:8.1.0"],
             ["discord.js", "npm:12.5.3"],
             ["dotenv", "npm:8.2.0"],
             ["module-alias", "npm:2.2.2"],
+            ["prettier", "npm:2.2.1"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"]
           ],
           "linkType": "SOFT",
@@ -1332,6 +1345,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/pluralize-npm-7.0.0-5e0212129c-d35d8aeda1.zip/node_modules/pluralize/",
           "packageDependencies": [
             ["pluralize", "npm:7.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["prettier", [
+        ["npm:2.2.1", {
+          "packageLocation": "./.yarn/cache/prettier-npm-2.2.1-e0670992f8-92c6c9f4b8.zip/node_modules/prettier/",
+          "packageDependencies": [
+            ["prettier", "npm:2.2.1"]
           ],
           "linkType": "HARD",
         }]

@@ -9,7 +9,8 @@
 	"scripts": {
 		"dev": "yarn compile && yarn rd",
 		"compile": "rm -rf dist/ && yarn tsc",
-		"rd": "NODE_ENV=development yarn node dist/src/index.js"
+		"rd": "NODE_ENV=development yarn node dist/src/index.js",
+		"prettify": "yarn prettier . --write"
 	},
 	"engines": {
 		"node": ">=14.0.0."
@@ -22,7 +23,9 @@
 	"devDependencies": {
 		"@types/module-alias": "^2",
 		"@types/node": "^14.14.37",
+		"@types/prettier": "^2",
 		"@yarnpkg/pnpify": "^2.4.0",
+		"prettier": "^2.2.1",
 		"typescript": "^4.2.4"
 	},
 	"dependencies": {
