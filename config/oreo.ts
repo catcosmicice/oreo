@@ -1,3 +1,3 @@
 export const oreo = {
-    defaultPrefix: 'o.'
+  defaultPrefix: "o.",
 };

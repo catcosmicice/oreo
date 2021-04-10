@@ -1,5 +1,5 @@
-import { AkairoOptions } from 'discord-akairo';
+import { AkairoOptions } from "discord-akairo";
 
 export const akairo: AkairoOptions = {
-    ownerID: process.env.OWNER
+  ownerID: process.env.OWNER,
 };

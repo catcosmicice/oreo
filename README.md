@@ -10,14 +10,14 @@ Support Server: Soon&trade;
 
 ## Built with:
 
-* [TypeScript](https://www.typescriptlang.org/)
-* [Discord.js](https://discord.js.org/#/)
-* [Akairo](https://discord-akairo.github.io/#/)
-* [MongoDB](https://www.mongodb.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Discord.js](https://discord.js.org/#/)
+- [Akairo](https://discord-akairo.github.io/#/)
+- [MongoDB](https://www.mongodb.com/)
 
 ## Author:
 
-**cosmicice** *aka catcosmicice* - [cosmicice](https://catcosmicice.cat)
+**cosmicice** _aka catcosmicice_ - [cosmicice](https://catcosmicice.cat)
 
 ## License:
 
