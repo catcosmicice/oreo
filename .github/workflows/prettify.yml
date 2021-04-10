@@ -18,3 +18,5 @@ jobs:
         with:
           commit_message: Prettify code
           branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
