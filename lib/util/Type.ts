@@ -3,10 +3,10 @@
  * @description The class for deep checking Types, rewritten in TypeScript by cosmicice.
  */
 
-const { getPromiseDetails } = process.internalBin
+const { getPromiseDetails } = process.internalBin;
 
 export class Type {
-    ['constructor']: typeof Type;
+    ["constructor"]: typeof Type;
     value: any;
     is: any;
     parent: any;
@@ -23,7 +23,11 @@ export class Type {
 
     get childTypes() {
         if (!this.childValues.size) return "";
-        return `<${(this.childKeys.size ? `${this.constructor.list(this.childKeys)}, ` : "") + this.constructor.list(this.childValues)}>`
+        return `<${
+            (this.childKeys.size
+                ? `${this.constructor.list(this.childKeys)}, `
+                : "") + this.constructor.list(this.childValues)
+        }>`;
     }
 
     toString() {
@@ -50,16 +54,20 @@ export class Type {
     check() {
         if (Object.isFrozen(this)) return;
         const promise = getPromiseDetails(this.value);
-        if (typeof this.value === 'object' && this.isCircular()) this.is = `[Circular:${this.is}]`
-        else if (promise && promise[0]) this.addValue(promise[1])
-        else if (this.value instanceof Map) for (const entry of this.value) this.addEntry(entry)
-        else if (Array.isArray(this.value) || this.value instanceof Set) for (const value of this.value) this.addValue(value);
-        else if (this.is === 'Object') this.is = 'any';
+        if (typeof this.value === "object" && this.isCircular())
+            this.is = `[Circular:${this.is}]`;
+        else if (promise && promise[0]) this.addValue(promise[1]);
+        else if (this.value instanceof Map)
+            for (const entry of this.value) this.addEntry(entry);
+        else if (Array.isArray(this.value) || this.value instanceof Set)
+            for (const value of this.value) this.addValue(value);
+        else if (this.is === "Object") this.is = "any";
         Object.freeze(this);
     }
 
     isCircular() {
-        for (const parent of this.parents()) if (parent.value === this.value) return true;
+        for (const parent of this.parents())
+            if (parent.value === this.value) return true;
         return false;
     }
 
@@ -80,6 +88,8 @@ export class Type {
     }
 
     static list(values) {
-        return values.has("any") ? "any" : [...values.values()].sort().join("|");
+        return values.has("any")
+            ? "any"
+            : [...values.values()].sort().join("|");
     }
 }

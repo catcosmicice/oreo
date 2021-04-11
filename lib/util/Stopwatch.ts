@@ -3,13 +3,12 @@
  * @description Klasa's Stopwatch class, uses native node to replicate/extend previous performance now dependency, rewritten in TypeScript by cosmicice.
  */
 
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
 
 export class Stopwatch {
     digits: number;
     _start: number;
     _end: any;
-
 
     constructor(digits = 2) {
         this.digits = digits;
@@ -18,7 +17,9 @@ export class Stopwatch {
     }
 
     get duration() {
-        return this._end ? this._end - this._start : performance.now() - this._start;
+        return this._end
+            ? this._end - this._start
+            : performance.now() - this._start;
     }
 
     get running(): boolean {
@@ -52,8 +53,8 @@ export class Stopwatch {
 
     toString() {
         const time = this.duration;
-        if (time >= 1000) return `${(time / 1000).toFixed(this.digits)}s`
-        if (time >= 1)  return `${time.toFixed(this.digits)}ms`
-        return `${(time / 1000).toFixed(this.digits)}μs`
+        if (time >= 1000) return `${(time / 1000).toFixed(this.digits)}s`;
+        if (time >= 1) return `${time.toFixed(this.digits)}ms`;
+        return `${(time / 1000).toFixed(this.digits)}μs`;
     }
 }
