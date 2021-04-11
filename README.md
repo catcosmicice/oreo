@@ -1,5 +1,7 @@
 # oreo
 
+![ts](https://img.shields.io/badge/Made%20using-Typescript-blue?style=flat-square&logo=typescript) ![license](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=flat-square)
+
 A Multipurpose Discord Bot written in TypeScript.
 
 The default prefix is `o.` but you can change it using `o.prefix <new prefix>`. You may also mention the bot to use commands. See `o.help` for a list of all the commands.
