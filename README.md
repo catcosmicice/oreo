@@ -1,6 +1,6 @@
 # oreo
 
-![ts](https://img.shields.io/badge/Made%20using-Typescript-blue?style=flat-square&logo=typescript) ![license](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=flat-square) ![code quality](https://img.shields.io/lgtm/grade/javascript/github/oweo/oreo?style=flat-square)
+![ts](https://img.shields.io/badge/Made%20using-Typescript-blue?style=flat-square&logo=typescript) ![license](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green?style=flat-square) [![Total alerts](https://img.shields.io/lgtm/grade/javascript/github/oweo/oreo?label=Code%20Quality%3A%20TS&style=flat-square)](https://lgtm.com/projects/g/oweo/oreo/alerts/)
 
 A Multipurpose Discord Bot written in TypeScript.
 
