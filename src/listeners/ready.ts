@@ -1,5 +1,5 @@
 import { Listener } from "discord-akairo";
-import { config } from '@oreo/config/index';
+import { config } from "@oreo/config/index";
 
 export default class Ready extends Listener {
     constructor() {

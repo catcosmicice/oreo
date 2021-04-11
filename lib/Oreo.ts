@@ -7,13 +7,10 @@ export class Oreo extends AkairoClient {
     // handlers
     handler: CommandHandler;
     listener: ListenerHandler;
-    languages: LanguageHandler
+    languages: LanguageHandler;
 
     constructor() {
-        super(
-            config.akairo,
-            config.discord
-        );
+        super(config.akairo, config.discord);
 
         // define all handlers
         this.handler = new CommandHandler(this, {
@@ -29,9 +26,8 @@ export class Oreo extends AkairoClient {
         });
 
         this.languages = new LanguageHandler(this, {
-            directory: join(__dirname, '../src/languages')
+            directory: join(__dirname, "../src/languages")
         });
-
 
         // load and use emitters and stuff
         this.handler.loadAll().useListenerHandler(this.listener);

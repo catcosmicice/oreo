@@ -1,95 +1,97 @@
 /**
-* @author Sapphire Project <https://github.com/sapphire-project/>
-* @description Stopwatch class, uses native node to replicate/extend performance-now dependency.
-*/
+ * @author Sapphire Project <https://github.com/sapphire-project/>
+ * @description Stopwatch class, uses native node to replicate/extend performance-now dependency.
+ */
 
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
 
 /**
-* Stopwatch class, uses native node to replicate/extend performance-now dependency.
-*/
+ * Stopwatch class, uses native node to replicate/extend performance-now dependency.
+ */
 export class Stopwatch {
     /**
-    * The number of digits to appear after the decimal point when returning the friendly duration.
-    */
+     * The number of digits to appear after the decimal point when returning the friendly duration.
+     */
     public digits: number;
-    
+
     /**
-    * The start time of this stopwatch
-    */
+     * The start time of this stopwatch
+     */
     // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
     #start: number;
-    
+
     /**
-    * The end time of this stopwatch
-    */
+     * The end time of this stopwatch
+     */
     // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
     #end: number | null;
-    
+
     /**
-    * Starts a new stopwatch
-    */
+     * Starts a new stopwatch
+     */
     public constructor(digits = 2) {
         this.digits = digits;
         this.#start = performance.now();
         this.#end = null;
     }
-    
+
     /**
-    * The duration of this stopwatch since start or start to end if this stopwatch has stopped.
-    */
+     * The duration of this stopwatch since start or start to end if this stopwatch has stopped.
+     */
     public get duration(): number {
-        return this.#end ? this.#end - this.#start : performance.now() - this.#start;
+        return this.#end
+            ? this.#end - this.#start
+            : performance.now() - this.#start;
     }
-    
+
     /**
-    * If the stopwatch is running or not.
-    */
+     * If the stopwatch is running or not.
+     */
     public get running(): boolean {
         return Boolean(!this.#end);
     }
-    
+
     /**
-    * Restarts the stopwatch (Returns a running state)
-    */
+     * Restarts the stopwatch (Returns a running state)
+     */
     public restart(): this {
         this.#start = performance.now();
         this.#end = null;
         return this;
     }
-    
+
     /**
-    * Resets the Stopwatch to 0 duration (Returns a stopped state)
-    */
+     * Resets the Stopwatch to 0 duration (Returns a stopped state)
+     */
     public reset(): this {
         this.#start = performance.now();
         this.#end = this.#start;
         return this;
     }
-    
+
     /**
-    * Starts the Stopwatch
-    */
+     * Starts the Stopwatch
+     */
     public start(): this {
         if (!this.running) {
             this.#start = performance.now() - this.duration;
             this.#end = null;
         }
-        
+
         return this;
     }
-    
+
     /**
-    * Stops the Stopwatch, freezing the duration
-    */
+     * Stops the Stopwatch, freezing the duration
+     */
     public stop(): this {
         if (this.running) this.#end = performance.now();
         return this;
     }
-    
+
     /**
-    * Defines toString behavior
-    */
+     * Defines toString behavior
+     */
     public toString(): string {
         const time = this.duration;
         if (time >= 1000) return `${(time / 1000).toFixed(this.digits)}s`;

@@ -1,6 +1,6 @@
 import { transpile } from "typescript";
 import { inspect } from "util";
-import { OreoMessage } from '@oreo/lib/structures/Message';
+import { OreoMessage } from "@oreo/lib/structures/Message";
 import { Command } from "@oreo/lib/util/Command";
 import { Stopwatch } from "@oreo/lib/util/Stopwatch";
 import { Type } from "@oreo/lib/util/Type";
@@ -47,7 +47,7 @@ export default class Eval extends Command {
         ctx: OreoMessage,
         args: { code: string; async?: boolean; silent?: boolean }
     ) {
-        if (!args.code) return ctx.send('EVAL_NO_CODE');
+        if (!args.code) return ctx.send("EVAL_NO_CODE");
 
         let code: string;
 
@@ -80,9 +80,9 @@ export default class Eval extends Command {
             thenable = false;
 
         try {
-            
             // ignore this, it's to use while evaluating.
-            const msg = ctx, message = ctx;
+            const msg = ctx,
+                message = ctx;
 
             result = eval(code);
             syncTime = stopwatch.toString();
@@ -113,12 +113,13 @@ export default class Eval extends Command {
             outputUrl = true;
         }
 
-        return ctx.util.send([
-            `**${success ? 'Output' : 'Error'}:**`,
-            outputUrl ? `\n${result}\n` : `\`\`\`js\n${result}\n\`\`\``,
-            `**Type:**`,
-            `\`\`\`yaml\n${type}\n\`\`\``
-        ].join('\n'))
+        return ctx.util.send(
+            [
+                `**${success ? "Output" : "Error"}:**`,
+                outputUrl ? `\n${result}\n` : `\`\`\`js\n${result}\n\`\`\``,
+                `**Type:**`,
+                `\`\`\`yaml\n${type}\n\`\`\``
+            ].join("\n")
+        );
     }
-
 }
