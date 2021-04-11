@@ -1,5 +1,5 @@
 import { Command } from "@oreo/lib/util/Command";
-import { Message } from "discord.js";
+import { OreoMessage } from '@oreo/lib/structures/Message';
 
 export default class Ping extends Command {
     constructor() {
@@ -9,9 +9,9 @@ export default class Ping extends Command {
         });
     }
 
-    async exec(ctx: Message) {
-        return ctx.util!.send("Ping?").then((msg) => {
-            return msg.edit(`🏓 Pong! ${this.client.ws.ping}`);
+    async exec(ctx: OreoMessage) {
+        return ctx.util.send("Ping?").then(() => {
+            return ctx.send('PING', this.client.ws.ping)
         });
     }
 }

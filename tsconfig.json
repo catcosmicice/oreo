@@ -8,7 +8,7 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"noImplicitAny": false,
-		"sourceMap": true,
+		"sourceMap": false,
 		"outDir": "dist/",
 		"baseUrl": "./",
 		"paths": {

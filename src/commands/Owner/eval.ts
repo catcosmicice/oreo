@@ -1,6 +1,6 @@
-import { Message } from "discord.js";
 import { transpile } from "typescript";
 import { inspect } from "util";
+import { OreoMessage } from '@oreo/lib/structures/Message';
 import { Command } from "@oreo/lib/util/Command";
 import { Stopwatch } from "@oreo/lib/util/Stopwatch";
 import { Type } from "@oreo/lib/util/Type";
@@ -12,6 +12,7 @@ export default class Eval extends Command {
     constructor() {
         super("eval", {
             aliases: ["ev"],
+            ownerOnly: true,
             args: [
                 {
                     id: "code",
@@ -43,9 +44,11 @@ export default class Eval extends Command {
     }
 
     async exec(
-        ctx: Message,
+        ctx: OreoMessage,
         args: { code: string; async?: boolean; silent?: boolean }
     ) {
+        if (!args.code) return ctx.send('EVAL_NO_CODE');
+
         let code: string;
 
         this.codeRegex.test(args.code)
@@ -68,14 +71,19 @@ export default class Eval extends Command {
 
         const stopwatch = new Stopwatch();
 
-        let success: boolean,
-            syncTime: string,
-            asyncTime: string,
-            result: any,
-            type: string;
-        let thenable = false;
+        let success: boolean | undefined = undefined,
+            syncTime: string | undefined = undefined,
+            asyncTime: string | undefined = undefined,
+            result: any | undefined = undefined,
+            outputUrl: boolean | undefined = undefined,
+            type: Type | undefined = undefined,
+            thenable = false;
 
         try {
+            
+            // ignore this, it's to use while evaluating.
+            const msg = ctx, message = ctx;
+
             result = eval(code);
             syncTime = stopwatch.toString();
             type = new Type(result);
@@ -88,7 +96,7 @@ export default class Eval extends Command {
             success = true;
         } catch (err) {
             if (!syncTime) syncTime = stopwatch.toString();
-            if (!type) type = new Type(err);
+            if (!type!) type = new Type(err);
             if (thenable && !asyncTime) asyncTime = stopwatch.toString();
             result = err;
             success = false;
@@ -100,38 +108,17 @@ export default class Eval extends Command {
 
         if (typeof result != "string") result = inspect(result, { depth: 0 });
 
-        if (result.length > 1800)
-            return await this.sendEvaled(
-                ctx,
-                success,
-                await haste(result),
-                type,
-                formatTime(syncTime, asyncTime),
-                true
-            );
-        else
-            return await this.sendEvaled(
-                ctx,
-                success,
-                result,
-                type,
-                formatTime(syncTime, asyncTime),
-                false
-            );
+        if (result.length > 1800) {
+            result = await haste(result);
+            outputUrl = true;
+        }
+
+        return ctx.util.send([
+            `**${success ? 'Output' : 'Error'}:**`,
+            outputUrl ? `\n${result}\n` : `\`\`\`js\n${result}\n\`\`\``,
+            `**Type:**`,
+            `\`\`\`yaml\n${type}\n\`\`\``
+        ].join('\n'))
     }
 
-    async sendEvaled(
-        ctx: Message,
-        success: boolean,
-        output: string,
-        type: string,
-        time: string,
-        oUrl: boolean
-    ) {
-        return ctx.util.send(
-            `**${success ? "Success" : "Error"}:**\n${
-                oUrl ? `\n${output}\n` : `\`\`\`js\n${output}\`\`\``
-            } \n**Type:** \n\`\`\`yaml\n${type}\n\`\`\` \n${time}`
-        );
-    }
 }
