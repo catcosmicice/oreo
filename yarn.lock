@@ -1079,6 +1079,7 @@ __metadata:
     dotenv: ^8.2.0
     module-alias: ^2.2.2
     prettier: ^2.2.1
+    process: ^0.11.10
     typescript: ^4.2.4
   languageName: unknown
   linkType: soft
@@ -1168,6 +1169,13 @@ __metadata:
     opusscript:
       optional: true
   checksum: e266159eadac34f9b57b68113d7bc61deb66516d64a0696eb696349552f19321fd5952a8224997bf26f707aa0dbdeaa13e40417b4031239b323e9b13d852566c
+  languageName: node
+  linkType: hard
+
+"process@npm:^0.11.10":
+  version: 0.11.10
+  resolution: "process@npm:0.11.10"
+  checksum: ed93a85e9185b40fb01788c588a87c1a9da0eb925ef7cebebbe1b8bbf0eba1802130366603a29e3b689c116969d4fe018de6aed3474bbeb5aefb3716b85d6449
   languageName: node
   linkType: hard
 
