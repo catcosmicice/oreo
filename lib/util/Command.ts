@@ -6,6 +6,7 @@ import {
     Flag
 } from "discord-akairo";
 import { Oreo } from "@oreo/lib/Oreo";
+import { Language } from "./language";
 
 type ArgumentGenerator = (
     ...a: Parameters<AkairoArgumentGenerator>
@@ -15,8 +16,8 @@ export class Command extends AkairoCommand {
     client: Oreo;
     hidden: boolean;
     superuserOnly: boolean;
-    moderatorOnly: boolean;
     channel?: "guild" | "dm";
+    description: (language: Language) => string;
     args?: ArgumentOptions[] | ArgumentGenerator;
 
     constructor(id: string, options?: CommandOptions) {
@@ -64,7 +65,6 @@ export class Command extends AkairoCommand {
 
         if (this.ownerOnly || options.superuserOnly) this.hidden = true;
         this.superuserOnly = options.superuserOnly || false;
-        this.moderatorOnly = options.moderatorOnly || false;
         this.hidden = options.hidden || false;
         this.args = options.args;
     }
@@ -77,7 +77,6 @@ export class Command extends AkairoCommand {
 export interface CommandOptions extends AkairoCommandOptions {
     args?: ArgumentOptions[] | ArgumentGenerator;
     restrictTo?: "guild" | "dm" | "all";
-    moderatorOnly?: boolean;
     superuserOnly?: boolean;
     hidden?: boolean;
 }

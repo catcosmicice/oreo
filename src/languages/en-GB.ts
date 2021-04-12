@@ -12,13 +12,14 @@ export default class enGB extends Language {
                 EVAL_NO_CODE: "bruh where's the fucking code?",
 
                 // ping command
-                PING: (ping: number) => `🏓 Pong! ${ping}ms.`,
+                PING: (ping: number) => `🏓 Pong! ${ping}ms`,
 
                 // random testing ones lol
                 ZEG: "nice dutch guy",
                 NORTEX: "mongodb fanboi",
                 BIRB: "i wish he'd tell us where he's from already bruh",
                 DARK: 'him and his stupid "dragonbot"',
+                OOPS: 'OH NO BIG ERROR 😱',
                 MADLIB: (
                     first: string,
                     second: string,
