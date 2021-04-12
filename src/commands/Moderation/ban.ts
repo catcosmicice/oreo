@@ -1,5 +1,5 @@
 import { Command } from "@oreo/lib/util/Command";
-import { Language } from '@oreo/lib/util/language';
+import { Language } from "@oreo/lib/util/language";
 
 export default class Ban extends Command {
     constructor() {
