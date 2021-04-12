@@ -38,10 +38,15 @@ export class OreoMessage extends Message {
 
     error(msg: OreoMessage, id: string = "", ...args: any[]) {
         const errorEmbed = new MessageEmbed()
-            .setTitle('An error occurred...')
-            .setColor('#ff6465')
-            .setDescription(`\`\`\`yaml\n${this.language.get(id, ...args)}\n\`\`\``)
-            .setFooter(msg.author.tag, msg.author.displayAvatarURL({ dynamic: true }));
+            .setTitle("An error occurred...")
+            .setColor("#ff6465")
+            .setDescription(
+                `\`\`\`yaml\n${this.language.get(id, ...args)}\n\`\`\``
+            )
+            .setFooter(
+                msg.author.tag,
+                msg.author.displayAvatarURL({ dynamic: true })
+            );
         return this.util.send(errorEmbed);
     }
 }

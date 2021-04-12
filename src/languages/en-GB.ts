@@ -19,7 +19,7 @@ export default class enGB extends Language {
                 NORTEX: "mongodb fanboi",
                 BIRB: "i wish he'd tell us where he's from already bruh",
                 DARK: 'him and his stupid "dragonbot"',
-                OOPS: 'OH NO BIG ERROR 😱',
+                OOPS: "OH NO BIG ERROR 😱",
                 MADLIB: (
                     first: string,
                     second: string,
