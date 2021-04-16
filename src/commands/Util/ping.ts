@@ -7,7 +7,8 @@ export default class Ping extends Command {
         super("ping", {
             aliases: ["pong"],
             restrictTo: "all",
-            description: (language: Language) => language.get('DESCRIPTION_PING')
+            description: (language: Language) =>
+                language.get("DESCRIPTION_PING")
         });
     }
 

@@ -8,10 +8,11 @@ const { colors } = constants;
 
 export default class Avatar extends Command {
     constructor() {
-        super('avatar', {
-            aliases: ['av'],
-            restrictTo: 'all',
-            description: (language: Language) => language.get('DESCRIPTION_AVATAR'),
+        super("avatar", {
+            aliases: ["av"],
+            restrictTo: "all",
+            description: (language: Language) =>
+                language.get("DESCRIPTION_AVATAR"),
             args: [
                 {
                     id: 'user',
@@ -28,7 +29,7 @@ export default class Avatar extends Command {
                     required: false
                 }
             ]
-        })
+        });
     }
 
     async exec(ctx: OreoMessage, args: { user: string, server: boolean }) {      
