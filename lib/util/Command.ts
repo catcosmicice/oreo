@@ -72,6 +72,18 @@ export class Command extends AkairoCommand {
     async init(): Promise<any> {}
 
     async unload(): Promise<any> {}
+
+    getArguments() {
+        return typeof this.args != undefined && Array.isArray(this.args) ? this.args.map((arg) => {
+            if (arg.required) {
+                if (arg.flag) return arg.type ? `<${arg.flag} ${arg.readableType}>` : `<${arg.flag}>`
+                else return `<${arg.readableType}>`;
+            } else {
+                if (arg.flag) return arg.type ? `[<${arg.flag} ${arg.readableType}>]` : `[<${arg.flag}>]`
+                else return `[<${arg.readableType}>]`;
+            }
+        }) : [];
+    }
 }
 
 export interface CommandOptions extends AkairoCommandOptions {

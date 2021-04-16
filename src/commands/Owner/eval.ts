@@ -23,7 +23,6 @@ export default class Eval extends Command {
                 },
                 {
                     id: "async",
-                    type: "string",
                     match: "flag",
                     flag: "--async",
                     required: false,
@@ -31,7 +30,6 @@ export default class Eval extends Command {
                 },
                 {
                     id: "silent",
-                    type: "string",
                     match: "flag",
                     flag: "--silent",
                     required: false,
@@ -51,17 +49,7 @@ export default class Eval extends Command {
 
         let code: string;
 
-        this.codeRegex.test(args.code)
-            ? (args.async &&
-                  (code = transpile(
-                      `(async () => {\n${
-                          this.codeRegex.exec(args.code).groups.code
-                      }\n})();`
-                  )),
-              (code = transpile(this.codeRegex.exec(args.code).groups.code)))
-            : (args.async &&
-                  (code = transpile(`(async () => {\n${args.code}\n})();`)),
-              (code = transpile(args.code)));
+        code = this.codeRegex.test(args.code) ? (args.async ? transpile(`(async () => {\n${this.codeRegex.exec(args.code).groups.code}\n})();`) : transpile(this.codeRegex.exec(args.code).groups.code)) : (args.async ? transpile(`(async () => {\n${args.code}\n})();`) : transpile(args.code));
 
         const formatTime = (syncTime: string, asyncTime: string): string => {
             return asyncTime

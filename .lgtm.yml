@@ -1,5 +1,0 @@
-path_classifiers:
-    test:
-        - exclude: .pnp.js
-        - exclude: .yarn/
-        - exclude: .vscode/

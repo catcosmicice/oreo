@@ -1,13 +1,18 @@
 import { AkairoClient, CommandHandler, ListenerHandler } from "discord-akairo";
-import { config } from "@oreo/config/index";
 import { join } from "path";
+import { config } from "@oreo/config/index";
 import { Language, LanguageHandler } from "./util/language";
+import { constants } from './util/constants';
 
 export class Oreo extends AkairoClient {
     // handlers
     handler: CommandHandler;
     listener: ListenerHandler;
     languages: LanguageHandler;
+
+    // other
+    config: object;
+    constants: object;
 
     constructor() {
         super(config.akairo, config.discord);
@@ -28,6 +33,9 @@ export class Oreo extends AkairoClient {
         this.languages = new LanguageHandler(this, {
             directory: join(__dirname, "../src/languages")
         });
+
+        this.config = config;
+        this.constants = constants;
 
         // load and use emitters and stuff
         this.handler.loadAll().useListenerHandler(this.listener);

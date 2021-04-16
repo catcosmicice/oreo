@@ -14,19 +14,8 @@ export default class enGB extends Language {
                 // ping command
                 PING: (ping: number) => `🏓 Pong! ${ping}ms`,
 
-                // random testing ones lol
-                ZEG: "nice dutch guy",
-                NORTEX: "mongodb fanboi",
-                BIRB: "i wish he'd tell us where he's from already bruh",
-                DARK: 'him and his stupid "dragonbot"',
-                OOPS: "OH NO BIG ERROR 😱",
-                MADLIB: (
-                    first: string,
-                    second: string,
-                    third: string,
-                    fourth: string
-                ) =>
-                    `The ${first} ate the ${second} while ${third} the ${fourth} duck`
+                // descriptions
+                DESCRIPTION_AVATAR: 'Get a User\'s or the server\'s avatar'
             },
             enabled: true
         });
