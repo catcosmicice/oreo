@@ -15,7 +15,7 @@ export default class enGB extends Language {
                 PING: (ping: number) => `🏓 Pong! ${ping}ms`,
 
                 // descriptions
-                DESCRIPTION_AVATAR: 'Get a User\'s or the server\'s avatar'
+                DESCRIPTION_AVATAR: "Get a User's or the server's avatar"
             },
             enabled: true
         });

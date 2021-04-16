@@ -2,7 +2,7 @@ import { AkairoClient, CommandHandler, ListenerHandler } from "discord-akairo";
 import { join } from "path";
 import { config } from "@oreo/config/index";
 import { Language, LanguageHandler } from "./util/language";
-import { constants } from './util/constants';
+import { constants } from "./util/constants";
 
 export class Oreo extends AkairoClient {
     // handlers

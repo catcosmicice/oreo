@@ -4,25 +4,26 @@ import { Language } from "@oreo/lib/util/language";
 
 export default class Avatar extends Command {
     constructor() {
-        super('avatar', {
-            aliases: ['av'],
-            restrictTo: 'all',
-            description: (language: Language) => language.get('DESCRIPTION_AVATAR'),
+        super("avatar", {
+            aliases: ["av"],
+            restrictTo: "all",
+            description: (language: Language) =>
+                language.get("DESCRIPTION_AVATAR"),
             args: [
                 {
-                    id: 'user',
-                    type: 'string',
+                    id: "user",
+                    type: "string",
                     default: (ctx: OreoMessage) => ctx.author.id,
                     required: false
                 },
                 {
-                    id: 'server',
-                    type: 'string',
+                    id: "server",
+                    type: "string",
                     default: null,
                     required: false
                 }
             ]
-        })
+        });
     }
 
     async exec(ctx: OreoMessage) {
